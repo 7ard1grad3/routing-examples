@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -16,22 +17,10 @@ import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MdButtonModule, MdCheckboxModule} from '@angular/material';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
-const appRoutes: Routes =
-[
-    { path: '', component: HomeComponent },
-    { path: 'users', component: UsersComponent, children:
-    [
-      { path: ':id/:name', component: UserComponent },
-    ]
-    },
-    { path: 'servers', component: ServersComponent, children:
-    [
-      { path: ':id', component: ServerComponent },
-      { path: ':id/edit', component: EditServerComponent }
-    ]},
-];
+
 
 
 
@@ -43,7 +32,8 @@ const appRoutes: Routes =
     ServersComponent,
     UserComponent,
     EditServerComponent,
-    ServerComponent
+    ServerComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +41,7 @@ const appRoutes: Routes =
     HttpModule,
     BrowserAnimationsModule,
     MdButtonModule, MdCheckboxModule,
-    RouterModule.forRoot(appRoutes) // Special module to add for routing
+    AppRoutingModule
   ],
   providers: [ServersService],
   bootstrap: [AppComponent]
