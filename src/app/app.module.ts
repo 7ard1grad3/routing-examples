@@ -1,3 +1,4 @@
+import { ServerResolverService } from './servers/server-resolver.service';
 import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
 import { AuthService } from './auth.service';
 import { AppGuardService } from './app-guard.service';
@@ -42,7 +43,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MdButtonModule, MdCheckboxModule, MatIconModule,
     AppRoutingModule
   ],
-  providers: [ServersService, AppGuardService, AuthService, CanDeactivateGuard],
+  providers: [ServersService, AppGuardService, AuthService, CanDeactivateGuard, ServerResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
